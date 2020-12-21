@@ -6,10 +6,10 @@ import random
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
-API_KEY = 'uvlTNHkidXHdCG9QBrKJPgAaZ'
-API_SECRET_KEY = 'NrHLUhJDGsE4LTHKAW9yADhgXnEZ7U1Ew7K0CBjcxdFrSoWvdK'
-ACCESS_TOKEN = '1289620640291594242-ORXmHNTtSJUzR6RCuJUxOds7TdGNZ1'
-ACCESS_TOKEN_SECRET = 'bXgHtFbHW9jJJ08EHtZK1GXv7yQdS5HoRi1UHgQGljiUF'
+API_KEY = 'jAMBX0o17PUuW40X0ZBSOQjmB'
+API_SECRET_KEY = 'Wx6A9igk3mvOCBQXHAzx6gE8S4EaRUVCyRr0Kmbsf1XCXzmjU3'
+ACCESS_TOKEN = '1289620640291594242-CkLakfXDjdAPGAWnmU6bL4zuDWhApx'
+ACCESS_TOKEN_SECRET = 'vUuAkcDOcgAR9rdmLHtBu7110ACM53D1wPnpe9bRPTeOk'
 
 auth = tweepy.OAuthHandler(API_KEY, API_SECRET_KEY)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
@@ -53,7 +53,7 @@ def retweet_tweets_with_hashtags(api, need_hashtags):
                             for i in range(len(mentions)):
                                 print(mentions[i])
                                 api.create_friendship(mentions[i])
-                                time.sleep(3)
+                                time.sleep(15)
 
                         api.update_status('@eddiethewashed ' + '@raju187 ' + '@braindead8270'+ ' ' + '@' + tweet.user.screen_name, tweet.id)
                         logger.info(f"Retweeted tweet from {tweet.user.name}")
@@ -72,4 +72,4 @@ def retweet_tweets_with_hashtags(api, need_hashtags):
 while True:
     retweet_tweets_with_hashtags(api, ['giveaway', 'like', 'retweet'])
     logger.info("Waiting...")
-    time.sleep(500)
+    time.sleep(2000)
