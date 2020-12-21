@@ -58,7 +58,7 @@ def retweet_tweets_with_hashtags(api, need_hashtags):
                         api.update_status('@eddiethewashed ' + '@raju187 ' + '@braindead8270'+ ' ' + '@' + tweet.user.screen_name, tweet.id)
                         logger.info(f"Retweeted tweet from {tweet.user.name}")
                         print('Ende')
-                        time.sleep(200)
+                        time.sleep(2000)
 
             except tweepy.TweepError:
                 logger.error("Error on retweet", exc_info=True)
@@ -72,4 +72,4 @@ def retweet_tweets_with_hashtags(api, need_hashtags):
 while True:
     retweet_tweets_with_hashtags(api, ['giveaway', 'like', 'retweet'])
     logger.info("Waiting...")
-    time.sleep(2000)
+    time.sleep(1000)
