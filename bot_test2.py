@@ -23,7 +23,7 @@ def retweet_tweets_with_hashtags(api, need_hashtags):
 
     if type(need_hashtags) is list:
         search_query = f"{need_hashtags} -filter:retweets"
-        tweets = api.search(q=search_query, lang = "en", tweet_mode='extended')
+        tweets = api.home_timeline(q=search_query, lang = "en", tweet_mode='extended')
         for tweet in tweets:
             hashtags = [i['text'].lower() for i in tweet.__dict__['entities']['hashtags']]
             text = tweet.__dict__['full_text'].lower()
@@ -58,7 +58,7 @@ def retweet_tweets_with_hashtags(api, need_hashtags):
                         api.update_status('@eddiethewashed ' + '@raju187 ' + '@braindead8270'+ ' ' + '@' + tweet.user.screen_name, tweet.id)
                         logger.info(f"Retweeted tweet from {tweet.user.name}")
                         print('Ende')
-                        time.sleep(2000)
+                        time.sleep(1500)
 
             except tweepy.TweepError:
                 logger.error("Error on retweet", exc_info=True)
@@ -72,4 +72,4 @@ def retweet_tweets_with_hashtags(api, need_hashtags):
 while True:
     retweet_tweets_with_hashtags(api, ['giveaway', 'like', 'retweet'])
     logger.info("Waiting...")
-    time.sleep(1000)
+    time.sleep(500)
