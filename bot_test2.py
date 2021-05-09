@@ -23,7 +23,7 @@ def retweet_tweets_with_hashtags(api, need_hashtags):
 
     if type(need_hashtags) is list:
         search_query = f"{need_hashtags} -filter:retweets"
-        tweets = api.home_timeline(q=search_query, lang = "en", tweet_mode='extended')
+        tweets = api.search(q=search_query, lang = "en", tweet_mode='extended')
         for tweet in tweets:
             hashtags = [i['text'].lower() for i in tweet.__dict__['entities']['hashtags']]
             text = tweet.__dict__['full_text'].lower()
@@ -70,6 +70,6 @@ def retweet_tweets_with_hashtags(api, need_hashtags):
 
 
 while True:
-    retweet_tweets_with_hashtags(api, ['giveaway', 'like', 'retweet'])
+    retweet_tweets_with_hashtags(api, ['giveaway', 'proxy', 'retweet'])
     logger.info("Waiting...")
     time.sleep(500)
