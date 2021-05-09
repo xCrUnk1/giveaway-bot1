@@ -55,7 +55,7 @@ def retweet_tweets_with_hashtags(api, need_hashtags):
                                 api.create_friendship(mentions[i])
                                 time.sleep(15)
 
-                        api.update_status('@eddiethewashed ' + '@raju187 ' + '@braindead8270'+ ' ' + '@' + tweet.user.screen_name, tweet.id)
+                        api.update_status('@Nk1Cri ' + '@raju187 ' + '@braindead8270'+ ' ' + '@' + tweet.user.screen_name, tweet.id)
                         logger.info(f"Retweeted tweet from {tweet.user.name}")
                         print('Ende')
                         time.sleep(1500)
